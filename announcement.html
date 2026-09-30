@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประกาศรายชื่อผู้มีสิทธิ์เข้าศึกษา - มจพ.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body, html { margin: 0; padding: 0; font-family: 'Kanit', sans-serif; background-color: #555555; }
+        
+        /* แก้ไขตรงนี้ให้กว้างเต็มหน้าจอ */
+        .container { 
+            width: 100%; 
+            margin: 0 auto; 
+            background-color: #ffffff; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+        }
+        
+        img.layout-img { width: 100%; display: block; height: auto; }
+
+        /* แถบเมนูหลัก */
+        .main-nav { display: flex; background-color: #e2e2e2; border-bottom: 1px solid #ccc; }
+        .main-nav a { flex: 1; text-align: center; padding: 15px 0; color: #555; text-decoration: none; font-weight: 500; font-size: 16px; border-right: 1px solid #ccc; transition: 0.2s; }
+        .main-nav a:last-child { border-right: none; }
+        .main-nav a:hover { background-color: #d0d0d0; }
+        .main-nav a.active { background-color: #ff5722; color: #ffffff; font-weight: 600; }
+        .dropdown-icon { font-size: 10px; margin-left: 5px; vertical-align: middle; }
+
+        /* แถบเมนูย่อย */
+        .sub-nav { display: flex; background-color: #dcdcdc; padding: 0; }
+        .sub-nav a { flex: 1; text-align: center; padding: 18px 0; color: #666; text-decoration: none; font-weight: 500; font-size: 16px; transition: 0.2s; }
+        .sub-nav a:hover { background-color: #d0d0d0; }
+
+        /* พื้นที่เนื้อหา */
+        .content-area { padding: 50px 80px 100px; background-color: #ffffff; min-height: 600px; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h1 { font-size: 26px; color: #222; margin: 0 0 8px 0; }
+        .section-header p { font-size: 16px; color: #666; margin: 0; }
+
+        /* กล่องค้นหารายบุคคล */
+        .search-card {
+            background-color: #f7f9fa;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            padding: 35px;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .search-title { font-size: 18px; font-weight: 600; color: #333; margin-bottom: 18px; text-align: center; }
+        .search-box { display: flex; gap: 12px; }
+        .search-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 1.5px solid #ccc;
+            border-radius: 6px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s;
+        }
+        .search-input:focus { border-color: #ff5722; }
+        .btn-search {
+            background-color: #ff5722;
+            color: #ffffff;
+            border: none;
+            padding: 0 35px;
+            border-radius: 6px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-search:hover { background-color: #e64a19; }
+
+        /* กล่องแสดงผลการค้นหา */
+        .result-box {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 8px;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            color: #2e7d32;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ตารางดาวน์โหลดรายชื่อ */
+        .table-title { font-size: 20px; font-weight: 600; color: #222; margin-bottom: 18px; border-left: 5px solid #ff5722; padding-left: 14px; }
+        .announce-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .announce-table th, .announce-table td { padding: 16px 20px; text-align: left; font-size: 15px; border-bottom: 1px solid #e5e5e5; }
+        .announce-table th { background-color: #3b3a39; color: #ffffff; font-weight: 500; }
+        .announce-table tr:hover { background-color: #fafafa; }
+        .badge-round { display: inline-block; background-color: #ede7f6; color: #512da8; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: 500; }
+        .btn-download {
+            display: inline-block;
+            background-color: #8c3826;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            transition: 0.2s;
+        }
+        .btn-download:hover { background-color: #6b2819; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ภาพส่วนหัว -->
+        <img src="image/header_1.png" alt="Header KMUTNB" class="layout-img">
+
+        <!-- แถบเมนูหลัก -->
+<nav class="main-nav">
+    <a href="index.html">หน้าแรก</a>
+    <a href="announcement.html">ประกาศรายชื่อ <span class="dropdown-icon">▼</span></a>
+    <a href="scholarship.html">ทุนการศึกษา <span class="dropdown-icon">▼</span></a>
+    <a href="print_doc.html">พิมพ์เอกสาร <span class="dropdown-icon">▼</span></a>
+    <a href="contact.html">ติดต่อสอบถาม</a>
+</nav>
+
+        <img src="image/header_2_register.png" alt="Banner Apply" class="layout-img">
+
+        <!-- แถบเมนูย่อย -->
+        <nav class="sub-nav">
+            <a href="index.html">ข่าวการรับสมัคร</a>
+            <a href="courses.html">กรอกใบสมัคร</a>
+            <a href="qualification.html">ตรวจสอบคุณวุฒิ</a>
+            <a href="curriculum.html">หลักสูตรการศึกษา</a>
+            <a href="schedule.html">กำหนดการรับนักศึกษาใหม่</a>
+        </nav>
+
+        <div class="content-area">
+            
+            <div class="section-header">
+                <h1>ประกาศผลและรายชื่อผู้มีสิทธิ์เข้าศึกษาต่อ</h1>
+                <p>ประจำปีการศึกษา 2570 มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+            </div>
+
+            <!-- กล่องค้นหาด่วน -->
+            <div class="search-card">
+                <div class="search-title">🔍 ตรวจสอบผลการคัดเลือกเฉพาะบุคคล</div>
+                <div class="search-box">
+                    <input type="text" id="citizenId" class="search-input" placeholder="กรอกเลขประจำตัวประชาชน 13 หลัก" maxlength="13">
+                    <button class="btn-search" onclick="checkResult()">ค้นหา</button>
+                </div>
+                <div id="result-box" class="result-box"></div>
+            </div>
+
+            <!-- รายการเอกสารประกาศดาวน์โหลด -->
+            <div class="table-title">รายการประกาศรายชื่อผู้ผ่านการคัดเลือก (ไฟล์ PDF)</div>
+            <table class="announce-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">รอบการสมัคร</th>
+                        <th>หัวข้อประกาศ</th>
+                        <th style="width: 15%;">วันที่ประกาศ</th>
+                        <th style="width: 12%; text-align: center;">ดาวน์โหลด</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge-round">TCAS 70 รอบที่ 1</span></td>
+                        <td>ประกาศรายชื่อผู้มีสิทธิ์สอบสัมภาษณ์ โครงการ Portfolio ประจำปีการศึกษา 2570</td>
+                        <td>15 พ.ย. 2569</td>
+                        <td style="text-align: center;"><a href="#" class="btn-download">PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge-round">โควตาเรียนดี</span></td>
+                        <td>ประกาศผลการคัดเลือกผู้มีสิทธิ์เข้าศึกษาต่อ ระดับปริญญาตรี (โควตาเรียนดี)</td>
+                        <td>10 พ.ย. 2569</td>
+                        <td style="text-align: center;"><a href="#" class="btn-download">PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge-round">เทียบโอน / ต่อเนื่อง</span></td>
+                        <td>ประกาศรายชื่อผู้มีสิทธิ์สอบข้อเขียนและสัมภาษณ์ หลักสูตรเทียบโอน 2 ปีครึ่ง และ 3 ปี</td>
+                        <td>28 ต.ค. 2569</td>
+                        <td style="text-align: center;"><a href="#" class="btn-download">PDF</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <img src="image/footer.png" alt="Footer Contact" class="layout-img">
+    </div>
+
+    <script>
+        function checkResult() {
+            const input = document.getElementById("citizenId").value.trim();
+            const resultBox = document.getElementById("result-box");
+
+            if (input.length !== 13 || isNaN(input)) {
+                alert("กรุณากรอกเลขประจำตัวประชาชนให้ครบ 13 หลักเป็นตัวเลข");
+                return;
+            }
+
+            resultBox.style.display = "block";
+            resultBox.innerHTML = `
+                🎉 <strong>ผลการค้นหา:</strong> ยินดีด้วยค่ะ!<br>
+                เลขบัตร: <strong>${input}</strong><br>
+                สถานะ: <strong>ผ่านการคัดเลือก (มีสิทธิ์เข้าศึกษาต่อ)</strong><br>
+                สาขาวิชา: <strong>วิศวกรรมสารสนเทศและเครือข่าย (INE)</strong><br>
+                <em>*โปรดเข้าสู่ระบบเพื่อยืนยันสิทธิ์และพิมพ์เอกสารมอบตัว*</em>
+            `;
+        }
+    </script>
+</body>
+</html>

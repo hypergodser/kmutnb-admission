@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อสอบถาม - มจพ.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body, html { margin: 0; padding: 0; font-family: 'Kanit', sans-serif; background-color: #555555; }
+        .container { width: 100%; margin: 0 auto; background-color: #ffffff; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        img.layout-img { width: 100%; display: block; height: auto; }
+
+        /* แถบเมนูหลัก */
+        .main-nav { display: flex; background-color: #e2e2e2; border-bottom: 1px solid #ccc; }
+        .main-nav a { flex: 1; text-align: center; padding: 15px 0; color: #555; text-decoration: none; font-weight: 500; font-size: 16px; border-right: 1px solid #ccc; transition: 0.2s; }
+        .main-nav a:last-child { border-right: none; }
+        .main-nav a:hover { background-color: #d0d0d0; }
+        .main-nav a.active { background-color: #ff5722; color: #ffffff; font-weight: 600; }
+        .dropdown-icon { font-size: 10px; margin-left: 5px; vertical-align: middle; }
+
+        /* แถบเมนูย่อย */
+        .sub-nav { display: flex; background-color: #dcdcdc; padding: 0; }
+        .sub-nav a { flex: 1; text-align: center; padding: 18px 0; color: #666; text-decoration: none; font-weight: 500; font-size: 16px; transition: 0.2s; }
+        .sub-nav a:hover { background-color: #d0d0d0; }
+
+        /* พื้นที่เนื้อหา */
+        .content-area { padding: 50px 80px 100px; background-color: #ffffff; min-height: 600px; }
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-header h1 { font-size: 26px; color: #222; margin: 0 0 10px 0; }
+        .section-header p { font-size: 16px; color: #666; margin: 0; }
+
+        /* โครงสร้างเลย์เอาต์ 2 คอลัมน์ */
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* คอลัมน์ข้อมูลติดต่อ */
+        .contact-info-card {
+            flex: 1.2;
+            background-color: #fdfdfd;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #222; margin-bottom: 20px; border-left: 5px solid #ff5722; padding-left: 12px; }
+        .info-item { margin-bottom: 22px; line-height: 1.7; font-size: 15px; color: #444; }
+        .info-item strong { color: #111; display: block; margin-bottom: 4px; font-size: 15.5px; }
+
+        .fb-box {
+            margin-top: 25px;
+            padding: 16px 20px;
+            background-color: #f0f4f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .fb-icon { font-size: 28px; }
+        .fb-text a { color: #1877f2; text-decoration: none; font-weight: 500; font-size: 14.5px; }
+        .fb-text a:hover { text-decoration: underline; }
+
+        /* คอลัมน์แบบฟอร์มส่งข้อความ */
+        .contact-form-card {
+            flex: 1;
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 35px;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: #ff5722; }
+        .btn-send {
+            width: 100%;
+            padding: 12px 0;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-send:hover { background-color: #e64a19; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="image/header_1.png" alt="Header KMUTNB" class="layout-img">
+
+        <!-- แถบเมนูหลัก: Active ที่ ติดต่อสอบถาม -->
+<nav class="main-nav">
+    <a href="index.html">หน้าแรก</a>
+    <a href="announcement.html">ประกาศรายชื่อ <span class="dropdown-icon">▼</span></a>
+    <a href="scholarship.html">ทุนการศึกษา <span class="dropdown-icon">▼</span></a>
+    <a href="print_doc.html">พิมพ์เอกสาร <span class="dropdown-icon">▼</span></a>
+    <a href="contact.html">ติดต่อสอบถาม</a>
+</nav>
+
+        <img src="image/header_2_register.png" alt="Banner Apply" class="layout-img">
+
+        <nav class="sub-nav">
+            <a href="index.html">ข่าวการรับสมัคร</a>
+            <a href="courses.html">กรอกใบสมัคร</a>
+            <a href="qualification.html">ตรวจสอบคุณวุฒิ</a>
+            <a href="curriculum.html">หลักสูตรการศึกษา</a>
+            <a href="schedule.html">กำหนดการรับนักศึกษาใหม่</a>
+        </nav>
+
+        <div class="content-area">
+            <div class="section-header">
+                <h1>ติดต่อสอบถามข้อมูลการรับสมัคร</h1>
+                <p>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.)</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- รายละเอียดสถานที่และเบอร์โทรตามข้อมูลจริง -->
+                <div class="contact-info-card">
+                    <div class="info-title">กลุ่มงานรับเข้าศึกษา</div>
+                    
+                    <div class="info-item">
+                        <strong>📍 ที่อยู่สำนักงาน:</strong>
+                        กลุ่มงานรับเข้าศึกษา กองบริการการศึกษา สำนักงานอธิการบดี ชั้น 2 อาคาร TGGS<br>
+                        มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ<br>
+                        1518 ถนนประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800
+                    </div>
+
+                    <div class="info-item">
+                        <strong>📞 เบอร์โทรศัพท์:</strong>
+                        +66 2 555-2000 ต่อ 1626, 1627<br>
+                        +66 2 555-2171
+                    </div>
+
+                    <div class="info-item">
+                        <strong>⏰ เวลาทำการ:</strong>
+                        วันจันทร์ – วันศุกร์ เวลา 08:30 – 16:30 น. (เว้นวันหยุดราชการ)
+                    </div>
+
+                    <div class="fb-box">
+                        <div class="fb-icon">🌐</div>
+                        <div class="fb-text">
+                            <span style="font-size: 13px; color: #666; display: block;">หรือติดต่อเราได้ที่ Facebook:</span>
+                            <a href="https://facebook.com" target="_blank">Facebook: Admission.KMUTNB - กลุ่มงานรับเข้าศึกษา มจพ.</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- กล่องแบบฟอร์มส่งข้อความสอบถาม -->
+                <div class="contact-form-card">
+                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #222;">ฝากข้อความสอบถาม</div>
+                    <form onsubmit="event.preventDefault(); alert('ส่งข้อความเรียบร้อยแล้วค่ะ เจ้าหน้าที่จะติดต่อกลับโดยเร็วที่สุด'); this.reset();">
+                        <div class="form-group">
+                            <label>ชื่อ - นามสกุล ผู้สอบถาม</label>
+                            <input type="text" required placeholder="กรอกชื่อ-นามสกุล">
+                        </div>
+                        <div class="form-group">
+                            <label>เบอร์โทรศัพท์ที่ติดต่อได้</label>
+                            <input type="text" required placeholder="กรอกเบอร์โทรศัพท์">
+                        </div>
+                        <div class="form-group">
+                            <label>เรื่องที่ต้องการสอบถาม</label>
+                            <input type="text" required placeholder="เช่น สอบถามการเทียบโอน, ค่าเทอม">
+                        </div>
+                        <div class="form-group">
+                            <label>ข้อความ / รายละเอียด</label>
+                            <textarea rows="4" required placeholder="กรอกรายละเอียดข้อความ..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-send">ส่งข้อความ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <img src="image/footer.png" alt="Footer Contact" class="layout-img">
+    </div>
+
+</body>
+</html>
